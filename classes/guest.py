@@ -9,6 +9,8 @@ class Guest:
         return self.wallet >= karaoke.entry_fee
     
     def fav_song_played(self, room):
+        quote = "Boooo"
         for song in room.song_list:
             if song == self.fav_song:
-                return "Yeah, this is my jam!!"
+                quote = "Yeah, this is my jam!!"
+        return quote

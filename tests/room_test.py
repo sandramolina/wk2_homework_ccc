@@ -16,6 +16,7 @@ class TestRoom(unittest.TestCase):
         self.song_to_add6 = Song("My Heart Will Go On", "Celine Dion", 3)
 
         self.guest2 = Guest("Eevee Costa", 25, 150, self.song_to_add2)
+        self.guest7 = Guest("Squirtle Blueman", 40, 120, Song("Total Eclipse of the Heart", "Bonnie Tyler", 5))
     
     def test_room_name(self):
         self.assertEqual("The tipsy gipsy", self.room1.room_name)
@@ -34,4 +35,8 @@ class TestRoom(unittest.TestCase):
         self.room1.add_song_to_room(self.song_to_add6)
         self.assertEqual("Yeah, this is my jam!!", self.guest2.fav_song_played(self.room1))
 
-    
+    def test_fav_song_say_booo(self):
+        self.room1.add_song_to_room(self.song_to_add1)
+        self.room1.add_song_to_room(self.song_to_add2)
+        self.room1.add_song_to_room(self.song_to_add3)
+        self.assertEqual("Boooo", self.guest7.fav_song_played(self.room1))
