@@ -26,25 +26,29 @@ class TestKaraoke(unittest.TestCase):
         self.assertEqual(1, len(self.karaoke1.room_list))
 
     def test_check_in_guest_to_room(self):
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest1)
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest2)
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest1)
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest2)
         self.assertEqual(2, len(self.room1.guest_list))
 
     def test_check_in_guest_to_room_no_possible(self):
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest1)
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest2)
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest3)
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest4)
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest5)
-        self.assertEqual("Room is full, please take guest to a new room", self.karaoke1.check_in_guest_to_room(self.room1, self.guest6))
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest1)
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest2)
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest3)
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest4)
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest5)
+        self.assertEqual("Room is full, please take guest to a new room", self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest6))
 
     def test_check_out_guest_from_room(self):
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest1)
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest2)
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest3)
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest1)
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest2)
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest3)
         self.karaoke1.check_out_guest_from_room(self.room1, self.guest1)
         self.assertEqual(2, len(self.room1.guest_list))
 
     def test_charge_karaoke_fee(self):
-        self.karaoke1.check_in_guest_to_room(self.room1, self.guest1)
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest1)
         self.assertEqual(90, self.guest1.wallet)
+
+    def test_till_increase(self):
+        self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest1)
+        self.assertEqual(10, self.karaoke1.till)
