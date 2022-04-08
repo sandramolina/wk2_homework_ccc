@@ -17,6 +17,7 @@ class TestKaraoke(unittest.TestCase):
         self.guest4 = Guest("Snorlax Kardashian", 30, 160)
         self.guest5 = Guest("Charmander Onfire", 31, 125)
         self.guest6 = Guest("Squirtle Blueman", 40, 1)
+        self.guest7 = Guest("Squirtle Blueman", 40, 120)
     
     def test_karoke_name(self):
         self.assertEqual("Venue 56", self.karaoke1.name)
@@ -39,7 +40,7 @@ class TestKaraoke(unittest.TestCase):
         self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest3)
         self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest4)
         self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest5)
-        self.assertEqual("Room is full, please take guest to a new room", self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest6))
+        self.assertEqual("Room is full, please take guest to a new room", self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest7))
 
     def test_check_out_guest_from_room(self):
         self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest1)
@@ -61,3 +62,6 @@ class TestKaraoke(unittest.TestCase):
 
     def test_can_afford_entry_fee_false(self):
         self.assertEqual(False, self.guest6.can_afford_entry_fee(self.karaoke1))
+
+    def test_guest_cannot_afford_entry_fee_so_no_check_in(self):
+        self.assertEqual("Guest has no sufficient funds", self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest6))
