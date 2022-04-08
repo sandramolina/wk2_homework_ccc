@@ -17,3 +17,6 @@ class TestGuest(unittest.TestCase):
 
     def test_guest_wallet(self):
         self.assertEqual(100, self.guest1.wallet)
+
+    def test_quest_fav_song(self):
+        self.assertEqual("Wannabe", self.guest2.fav_song.song_name)
