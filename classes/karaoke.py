@@ -15,7 +15,7 @@ class Karaoke:
             else:
                 room.guest_list.append(guest_to_add)
                 guest_to_add.wallet -= self.entry_fee
-                karaoke.till += self.entry_fee
+                self.till += self.entry_fee
         else:
             return "Guest has no sufficient funds"
 
