@@ -8,10 +8,15 @@ from classes.room import Room
 class TestKaraoke(unittest.TestCase):
     def setUp(self):
         self.karaoke1 = Karaoke("Venue 56")
+
         self.room1 = Room("The tipsy gipsy")
+
         self.guest1 = Guest("Pikachu Gutierrez", 32)
         self.guest2 = Guest("Eevee Costa", 25)
         self.guest3 = Guest("Charizard Smith", 22)
+        self.guest4 = Guest("Snorlax Kardashian", 30)
+        self.guest5 = Guest("Charmander Onfire", 31)
+        self.guest6 = Guest("Squirtle Blueman", 40)
     
     def test_karoke_name(self):
         self.assertEqual("Venue 56", self.karaoke1.name)
@@ -24,6 +29,14 @@ class TestKaraoke(unittest.TestCase):
         self.karaoke1.check_in_guest_to_room(self.room1, self.guest1)
         self.karaoke1.check_in_guest_to_room(self.room1, self.guest2)
         self.assertEqual(2, len(self.room1.guest_list))
+
+    def test_check_in_guest_to_room_no_possible(self):
+        self.karaoke1.check_in_guest_to_room(self.room1, self.guest1)
+        self.karaoke1.check_in_guest_to_room(self.room1, self.guest2)
+        self.karaoke1.check_in_guest_to_room(self.room1, self.guest3)
+        self.karaoke1.check_in_guest_to_room(self.room1, self.guest4)
+        self.karaoke1.check_in_guest_to_room(self.room1, self.guest5)
+        self.assertEqual("Room is full, please take guest to a new room", self.karaoke1.check_in_guest_to_room(self.room1, self.guest6))
 
     def test_check_out_guest_from_room(self):
         self.karaoke1.check_in_guest_to_room(self.room1, self.guest1)
