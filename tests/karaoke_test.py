@@ -3,6 +3,7 @@ from classes.guest import Guest
 
 from classes.karaoke import Karaoke
 from classes.room import Room
+from classes.song import Song
 
 
 class TestKaraoke(unittest.TestCase):
@@ -11,13 +12,13 @@ class TestKaraoke(unittest.TestCase):
 
         self.room1 = Room("The tipsy gipsy")
 
-        self.guest1 = Guest("Pikachu Gutierrez", 32, 100)
-        self.guest2 = Guest("Eevee Costa", 25, 150)
-        self.guest3 = Guest("Charizard Smith", 22, 180)
-        self.guest4 = Guest("Snorlax Kardashian", 30, 160)
-        self.guest5 = Guest("Charmander Onfire", 31, 125)
-        self.guest6 = Guest("Squirtle Blueman", 40, 1)
-        self.guest7 = Guest("Squirtle Blueman", 40, 120)
+        self.guest1 = Guest("Pikachu Gutierrez", 32, 100, Song("Bohemian Rhapsody", "Queen", 6))
+        self.guest2 = Guest("Eevee Costa", 25, 150, Song("Bohemian Rhapsody", "Queen", 6))
+        self.guest3 = Guest("Charizard Smith", 22, 180, Song("Bohemian Rhapsody", "Queen", 6))
+        self.guest4 = Guest("Snorlax Kardashian", 30, 160, Song("Bohemian Rhapsody", "Queen", 6))
+        self.guest5 = Guest("Charmander Onfire", 31, 125, Song("Bohemian Rhapsody", "Queen", 6))
+        self.guest6 = Guest("Squirtle Blueman", 40, 1, Song("Bohemian Rhapsody", "Queen", 6))
+        self.guest7 = Guest("Squirtle Blueman", 40, 120, Song("Bohemian Rhapsody", "Queen", 6))
     
     def test_karoke_name(self):
         self.assertEqual("Venue 56", self.karaoke1.name)
