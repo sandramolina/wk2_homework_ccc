@@ -11,6 +11,7 @@ class TestKaraoke(unittest.TestCase):
         self.room1 = Room("The tipsy gipsy")
         self.guest1 = Guest("Pikachu Gutierrez", 32)
         self.guest2 = Guest("Eevee Costa", 25)
+        self.guest3 = Guest("Charizard Smith", 22)
     
     def test_karoke_name(self):
         self.assertEqual("Venue 56", self.karaoke1.name)
@@ -22,4 +23,11 @@ class TestKaraoke(unittest.TestCase):
     def test_check_in_guest_to_room(self):
         self.karaoke1.check_in_guest_to_room(self.room1, self.guest1)
         self.karaoke1.check_in_guest_to_room(self.room1, self.guest2)
+        self.assertEqual(2, len(self.room1.guest_list))
+
+    def test_check_out_guest_from_room(self):
+        self.karaoke1.check_in_guest_to_room(self.room1, self.guest1)
+        self.karaoke1.check_in_guest_to_room(self.room1, self.guest2)
+        self.karaoke1.check_in_guest_to_room(self.room1, self.guest3)
+        self.karaoke1.check_out_guest_from_room(self.room1, self.guest1)
         self.assertEqual(2, len(self.room1.guest_list))
