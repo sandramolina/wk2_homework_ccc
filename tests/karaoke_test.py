@@ -16,7 +16,7 @@ class TestKaraoke(unittest.TestCase):
         self.guest3 = Guest("Charizard Smith", 22, 180)
         self.guest4 = Guest("Snorlax Kardashian", 30, 160)
         self.guest5 = Guest("Charmander Onfire", 31, 125)
-        self.guest6 = Guest("Squirtle Blueman", 40, 300)
+        self.guest6 = Guest("Squirtle Blueman", 40, 1)
     
     def test_karoke_name(self):
         self.assertEqual("Venue 56", self.karaoke1.name)
@@ -54,4 +54,4 @@ class TestKaraoke(unittest.TestCase):
         self.assertEqual(10, self.karaoke1.till)
 
     def test_can_afford_entry_fee_true(self):
-        self.assertEqual(True, self.karaoke1.can_afford(self.guest1))
+        self.assertEqual(True, self.guest1.can_afford_entry_fee())

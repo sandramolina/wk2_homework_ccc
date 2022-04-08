@@ -3,3 +3,6 @@ class Guest:
         self.name = input_name
         self.age = input_age
         self.wallet = input_wallet
+    
+    def can_afford_entry_fee(self):
+        return self.wallet >= 10

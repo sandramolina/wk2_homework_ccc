@@ -14,12 +14,6 @@ class Karaoke:
             room.guest_list.append(guest_to_add)
             guest_to_add.wallet -= 10
             karaoke.till += 10
-    
-    def can_afford(self, guest):
-        if guest.wallet >= 10:
-            return True
-        else:
-            return False
 
     def check_out_guest_from_room(self, room, guest_to_remove):
         room.guest_list.remove(guest_to_remove)
