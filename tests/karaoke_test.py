@@ -58,3 +58,6 @@ class TestKaraoke(unittest.TestCase):
 
     def test_can_afford_entry_fee_true(self):
         self.assertEqual(True, self.guest1.can_afford_entry_fee(self.karaoke1))
+
+    def test_can_afford_entry_fee_false(self):
+        self.assertEqual(False, self.guest6.can_afford_entry_fee(self.karaoke1))
