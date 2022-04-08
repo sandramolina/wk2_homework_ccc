@@ -52,3 +52,6 @@ class TestKaraoke(unittest.TestCase):
     def test_till_increase(self):
         self.karaoke1.check_in_guest_to_room(self.karaoke1, self.room1, self.guest1)
         self.assertEqual(10, self.karaoke1.till)
+
+    def test_can_afford_entry_fee_true(self):
+        self.assertEqual(True, self.karaoke1.can_afford(self.guest1))
