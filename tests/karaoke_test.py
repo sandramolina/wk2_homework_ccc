@@ -44,3 +44,7 @@ class TestKaraoke(unittest.TestCase):
         self.karaoke1.check_in_guest_to_room(self.room1, self.guest3)
         self.karaoke1.check_out_guest_from_room(self.room1, self.guest1)
         self.assertEqual(2, len(self.room1.guest_list))
+
+    def test_charge_karaoke_fee(self):
+        self.karaoke1.check_in_guest_to_room(self.room1, self.guest1)
+        self.assertEqual(90, self.guest1.wallet)

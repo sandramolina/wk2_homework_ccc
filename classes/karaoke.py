@@ -11,6 +11,7 @@ class Karaoke:
             return "Room is full, please take guest to a new room"
         else:
             room.guest_list.append(guest_to_add)
+            guest_to_add.wallet -= 10
     
     def check_out_guest_from_room(self, room, guest_to_remove):
         room.guest_list.remove(guest_to_remove)
