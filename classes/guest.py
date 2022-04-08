@@ -4,5 +4,5 @@ class Guest:
         self.age = input_age
         self.wallet = input_wallet
     
-    def can_afford_entry_fee(self):
-        return self.wallet >= 10
+    def can_afford_entry_fee(self, karaoke):
+        return self.wallet >= karaoke.entry_fee

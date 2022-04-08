@@ -57,4 +57,4 @@ class TestKaraoke(unittest.TestCase):
         self.assertEqual(10, self.karaoke1.till)
 
     def test_can_afford_entry_fee_true(self):
-        self.assertEqual(True, self.guest1.can_afford_entry_fee())
+        self.assertEqual(True, self.guest1.can_afford_entry_fee(self.karaoke1))
