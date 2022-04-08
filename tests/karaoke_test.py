@@ -11,12 +11,12 @@ class TestKaraoke(unittest.TestCase):
 
         self.room1 = Room("The tipsy gipsy")
 
-        self.guest1 = Guest("Pikachu Gutierrez", 32)
-        self.guest2 = Guest("Eevee Costa", 25)
-        self.guest3 = Guest("Charizard Smith", 22)
-        self.guest4 = Guest("Snorlax Kardashian", 30)
-        self.guest5 = Guest("Charmander Onfire", 31)
-        self.guest6 = Guest("Squirtle Blueman", 40)
+        self.guest1 = Guest("Pikachu Gutierrez", 32, 100)
+        self.guest2 = Guest("Eevee Costa", 25, 150)
+        self.guest3 = Guest("Charizard Smith", 22, 180)
+        self.guest4 = Guest("Snorlax Kardashian", 30, 160)
+        self.guest5 = Guest("Charmander Onfire", 31, 125)
+        self.guest6 = Guest("Squirtle Blueman", 40, 300)
     
     def test_karoke_name(self):
         self.assertEqual("Venue 56", self.karaoke1.name)
