@@ -7,3 +7,8 @@ class Guest:
     
     def can_afford_entry_fee(self, karaoke):
         return self.wallet >= karaoke.entry_fee
+    
+    def fav_song_played(self, room):
+        for song in room.song_list:
+            if song == self.fav_song:
+                return "Yeah, this is my jam!!"
