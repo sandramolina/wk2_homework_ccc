@@ -7,7 +7,7 @@ from classes.song import Song
 class TestGuest(unittest.TestCase):
     def setUp(self):
         self.guest1 = Guest("Pikachu Gutierrez", 32, 100, Song("Bohemian Rhapsody", "Queen", 6))
-        self.guest2 = Guest("Eevee Costa", 25, 50, Song("Wannabe", "Spice Girls", 3))
+        self.guest2 = Guest("Eevee Costa", 25, 150, Song("Wannabe", "Spice Girls", 3))
     
     def test_guest_name(self):
         self.assertEqual("Pikachu Gutierrez", self.guest1.name)
