@@ -20,6 +20,9 @@ class TestRoom(unittest.TestCase):
         self.song_to_add5 = Song("Salsa y Control", "Grupo Niche", 4)
         self.song_to_add6 = Song("My Heart Will Go On", "Celine Dion", 3)
 
+        self.song_to_play1 = self.song_to_add6
+        self.song_to_play2 = self.song_to_add1
+
         self.guest2 = Guest("Eevee Costa", 25, 150, self.song_to_add2)
         self.guest7 = Guest("Squirtle Blueman", 40, 120, Song("Total Eclipse of the Heart", "Bonnie Tyler", 5))        
 
@@ -71,6 +74,10 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(6.8, self.bar_room1.bar_till)
 
     def test_cant_sell_drink_no_stock(self):
-        self.bar_room1.add_drinks_to_bar(self.drink1, 0)
-        
+        self.bar_room1.add_drinks_to_bar(self.drink1, 0)        
         self.assertEqual("Sorry, we don't have any left", self.bar_room1.sell_drinks(self.drink1, 2))
+
+    def test_play_song(self):
+        
+        self.assertEqual("This is My Heart Will Go On by Celine Dion", self.room1.play_song(self.song_to_play1))
+        self.assertEqual("This is Bohemian Rhapsody by Queen", self.room1.play_song(self.song_to_play2))

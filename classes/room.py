@@ -6,3 +6,6 @@ class Room:
 
     def add_song_to_room(self, song_to_add):
         self.playlist.append(song_to_add)
+    
+    def play_song(self, song_to_play):
+        return f'This is {song_to_play.song_name} by {song_to_play.artist}'
