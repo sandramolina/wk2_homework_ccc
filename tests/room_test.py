@@ -1,5 +1,6 @@
 import unittest
 from classes.bar import Bar
+from classes.drinks import Drinks
 from classes.guest import Guest
 from classes.room import Room
 from classes.song import Song
@@ -20,6 +21,9 @@ class TestRoom(unittest.TestCase):
         self.guest7 = Guest("Squirtle Blueman", 40, 120, Song("Total Eclipse of the Heart", "Bonnie Tyler", 5))
 
         self.bar_room1 = Bar()
+
+        self.drink1 = Drinks("Beer", 3.4)
+        self.drink2 = Drinks("Cocktail", 5)
     
     def test_room_name(self):
         self.assertEqual("The tipsy gipsy", self.room1.room_name)
@@ -46,3 +50,7 @@ class TestRoom(unittest.TestCase):
 
     def test_bar_till(self):
         self.assertEqual(0, self.bar_room1.bar_till)
+
+    def test_add_drinks_to_bar(self):
+        self.bar_room1.add_drinks_to_bar(self.drink1)
+        self.assertEqual(1, len(self.bar_room1.drinks))
