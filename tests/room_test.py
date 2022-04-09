@@ -63,3 +63,9 @@ class TestRoom(unittest.TestCase):
         
         self.bar_room1.remove_drinks_from_bar(self.drink1, 18)
         self.assertEqual(12, self.drink1.stock)
+
+    def test_sell_drink(self):
+        self.bar_room1.add_drinks_to_bar(self.drink1, 5)
+        self.bar_room1.sell_drinks(self.drink1, 2)
+        self.assertEqual(3, self.drink1.stock)
+        self.assertEqual(6.8, self.bar_room1.bar_till)

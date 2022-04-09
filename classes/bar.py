@@ -13,3 +13,7 @@ class Bar:
     def remove_drinks_from_bar(self, drink_to_remove, units_to_remove):
         self.drinks.remove(drink_to_remove)
         drink_to_remove.stock -= units_to_remove
+
+    def sell_drinks(self, drink_to_sell, units_to_sell):
+        self.remove_drinks_from_bar(drink_to_sell, units_to_sell)
+        self.bar_till += drink_to_sell.price * units_to_sell
