@@ -7,9 +7,6 @@ class Guest:
     
     def can_afford_entry_fee(self, karaoke):
         return self.wallet >= karaoke.entry_fee
-    
-    def pay_entrance_fee(self):
-        pass
 
     def fav_song_played(self, room):
         quote = "Boooo"
