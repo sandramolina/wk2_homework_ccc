@@ -57,9 +57,9 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(1, len(self.bar_room1.drinks))
         self.assertEqual(10, self.drink1.stock)
     
-    # def test_remove_drink_from_bar(self):
-    #     for i in range(0, 5):
-    #         self.bar_room1.add_drinks_to_bar(self.drink1)
+    def test_remove_drink_from_bar(self):
+        for i in range(0, 6):
+            self.bar_room1.add_drinks_to_bar(self.drink1, 5)
         
-    #     self.bar_room1.remove_drinks_to_bar(self.drink1)
-    #     self.assertEqual(1, len(self.bar_room1.drinks))
+        self.bar_room1.remove_drinks_from_bar(self.drink1, 18)
+        self.assertEqual(12, self.drink1.stock)
