@@ -8,4 +8,5 @@ class Room:
         self.playlist.append(song_to_add)
     
     def play_song(self, song_to_play):
+        song_to_play.song_popularity += 0.5
         return f'This is {song_to_play.song_name} by {song_to_play.artist}'

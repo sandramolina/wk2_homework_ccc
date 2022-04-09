@@ -77,7 +77,11 @@ class TestRoom(unittest.TestCase):
         self.bar_room1.add_drinks_to_bar(self.drink1, 0)        
         self.assertEqual("Sorry, we don't have any left", self.bar_room1.sell_drinks(self.drink1, 2))
 
-    def test_play_song(self):
-        
+    def test_play_song(self):        
         self.assertEqual("This is My Heart Will Go On by Celine Dion", self.room1.play_song(self.song_to_play1))
         self.assertEqual("This is Bohemian Rhapsody by Queen", self.room1.play_song(self.song_to_play2))
+    
+    def test_song_popularity(self):
+        for i in range(0, 10):
+            self.room1.play_song(self.song_to_play1)
+        self.assertEqual(5, self.song_to_play1.song_popularity)
