@@ -10,7 +10,7 @@ class Guest:
     
     def fav_song_played(self, room):
         quote = "Boooo"
-        for song in room.song_list:
+        for song in room.playlist:
             if song == self.fav_song:
                 quote = "Yeah, this is my jam!!"
         return quote

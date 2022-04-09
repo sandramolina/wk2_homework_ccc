@@ -24,7 +24,7 @@ class TestRoom(unittest.TestCase):
     def test_song_add_song_to_room(self):
         for i in range(0, 5):
             self.room1.add_song_to_room(self.song_to_add1)
-        self.assertEqual(5, len(self.room1.song_list))
+        self.assertEqual(5, len(self.room1.playlist))
 
     def test_fav_song_say_yeah(self):
         self.room1.add_song_to_room(self.song_to_add1)
